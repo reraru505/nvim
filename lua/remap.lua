@@ -103,7 +103,7 @@ local function helix_select_line_by_line()
 end
 
 vim.keymap.set('n' , 'd' , 'x' , {noremap = true})
-
+vim.keymap.set('n' , 'C' , '<C-v>' , {noremap = true})
 
 vim.keymap.set('n' , 'x' , helix_select_line_by_line , {})
 vim.keymap.set('v' , 'x' , helix_select_line_by_line , {})
