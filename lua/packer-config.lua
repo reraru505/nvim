@@ -38,6 +38,11 @@ return require('packer').startup(function(use)
 	-- Automatically install missing plugins on startup
 
 	use 'windwp/nvim-autopairs'
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'nvim-tree/nvim-web-devicons', opt = true } -- Important for icons!
+	}
+	use 'nvim-lua/lsp-status.nvim' -- This is the correct plugin for 'lsp-status'
 
 	if packer_bootstrap then
 		require('packer').sync()

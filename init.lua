@@ -8,6 +8,7 @@ vim.cmd("colorscheme kanagawa")
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.virtualedit = 'all' 
 
+require('lauline-conf')
 require('autopairs-conf')
 
 --require("lsp-config")
