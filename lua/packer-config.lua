@@ -36,6 +36,9 @@ return require('packer').startup(function(use)
 	use 'j-hui/fidget.nvim'            -- LSP progress notifications (optional, but nice to have)
 	-- END: Add these lines for Autocompletion
 	-- Automatically install missing plugins on startup
+
+	use 'windwp/nvim-autopairs'
+
 	if packer_bootstrap then
 		require('packer').sync()
 	end

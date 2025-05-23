@@ -15,3 +15,5 @@ end)
 vim.keymap.set('n' , '<leader>b' , function() 
 	builtin.buffers();
 end)
+
+vim.keymap.set('n' , '<leader>w' , '<C-w>w' )
