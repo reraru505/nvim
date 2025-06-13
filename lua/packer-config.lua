@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
 	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig.nvim'
 	use 'rebelot/kanagawa.nvim'
-
+	use "blazkowolf/gruber-darker.nvim"
 	-- START: Add these lines for Autocompletion
 	use 'hrsh7th/nvim-cmp'             -- The completion plugin
 	use 'hrsh7th/cmp-nvim-lsp'         -- LSP source for nvim-cmp
@@ -38,6 +38,12 @@ return require('packer').startup(function(use)
 	-- Automatically install missing plugins on startup
 
 	use 'windwp/nvim-autopairs'
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons', -- optional
+		},
+	}
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'nvim-tree/nvim-web-devicons', opt = true } -- Important for icons!

@@ -23,6 +23,9 @@ vim.keymap.set('n' , '<C-y>' , 'P' , { noremap = true , silent = true })
 vim.keymap.set('v' , '<C-y>' , 'P' , { noremap = true , silent = true })
 vim.keymap.set('i' , '<C-y>' , 'P' , { noremap = true , silent = true })
 
+vim.keymap.set('n' , '<C-j>', '}', {noremap = true , silent = true})
+vim.keymap.set('n' , '<C-k>', '{', {noremap = true , silent = true})
+
 
 vim.keymap.set('n' , 'K' , vim.diagnostic.open_float , {noremap = true , silent = true} )
                                                                                         

@@ -16,4 +16,8 @@ vim.keymap.set('n' , '<leader>b' , function()
 	builtin.buffers();
 end)
 
+require("nvim-tree").setup()
+
+vim.keymap.set('n' , '<leader>t' , '<cmd>NvimTreeToggle<CR>' , {noremap = true} )
+
 vim.keymap.set('n' , '<leader>w' , '<C-w>w' )
