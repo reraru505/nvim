@@ -18,7 +18,7 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     "rust_analyzer", -- Rust
     "gopls",         -- Go
-    "pyright",       -- Python
+--    "pyright",       -- Python
     "clangd",        -- C/C++
   },
   -- You can still use setup_handlers here for common on_attach keymaps,

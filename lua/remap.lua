@@ -26,6 +26,12 @@ vim.keymap.set('i' , '<C-y>' , 'P' , { noremap = true , silent = true })
 vim.keymap.set('n' , '<C-j>', '}', {noremap = true , silent = true})
 vim.keymap.set('n' , '<C-k>', '{', {noremap = true , silent = true})
 
+vim.keymap.set('v' , '<C-j>', '}', {noremap = true , silent = true})
+vim.keymap.set('v' , '<C-k>', '{', {noremap = true , silent = true})
+ 
+vim.keymap.set('n' , 'L', '$l', {noremap = true , silent = true})
+vim.keymap.set('n' , 'H', '0', {noremap = true , silent = true})
+
 
 vim.keymap.set('n' , 'K' , vim.diagnostic.open_float , {noremap = true , silent = true} )
                                                                                         
@@ -106,7 +112,8 @@ local function helix_select_line_by_line()
   end
 end
 
-vim.keymap.set('n' , 'd' , 'x' , {noremap = true})
+vim.keymap.set('n' , 'd' , '"_x' , {noremap = true})
+vim.keymap.set('v' , 'd' , '"_x' , {noremap = true})
 vim.keymap.set('n' , 'C' , '<C-v>' , {noremap = true})
 
 vim.keymap.set('n' , 'x' , helix_select_line_by_line , {})
@@ -125,7 +132,8 @@ vim.keymap.set('v' , '<A-j>' , move_selection_down, { noremap = true , desc = "M
 
 
 
-
+vim.keymap.set('n', ',',  ':vertical resize +2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '.',  ':vertical resize -2<CR>', { noremap = true, silent = true })
 
 
 
