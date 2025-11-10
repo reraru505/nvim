@@ -7,6 +7,14 @@ if vim.fn.executable('win32yank.exe') == 1 then
 	}
 end
 
+require("nvim-tree").setup({
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_root = true
+  },
+})
 
 require("remap")
 require("telescope-config")
@@ -23,6 +31,6 @@ vim.opt.virtualedit = 'all'
 
 require('lauline-conf')
 require('autopairs-conf')
-
+require('project')
 --require("lsp-config")
 

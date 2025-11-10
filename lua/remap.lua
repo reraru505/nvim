@@ -7,6 +7,7 @@ vim.keymap.set('n', '<C-l>', 'w', { noremap = true, silent = true, desc = 'Move 
 vim.keymap.set('n', '<C-h>', 'b', { noremap = true, silent = true, desc = 'Move prev word start' })
 -- Helix: "ret" = "open_below"
 vim.keymap.set('n', '<CR>', 'o', { noremap = true, silent = true, desc = 'Open line below' })
+vim.keymap.set('n', 'o', '<CR>', { noremap = true, silent = true, desc = 'Open line below' })
 
 -- visual mode settings 
 vim.keymap.set('v', '<C-l>', 'w', { noremap = true, silent = true, desc = 'Move next word start' })
