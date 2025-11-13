@@ -20,6 +20,7 @@ require('mason-lspconfig').setup({
     "gopls",         -- Go
 --    "pyright",       -- Python
     "clangd",        -- C/C++
+    "ts_ls",         --javascript/typescript
   },
   -- You can still use setup_handlers here for common on_attach keymaps,
   -- or manage on_attach centrally as shown below for the v0.11+ style.

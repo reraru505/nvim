@@ -25,4 +25,11 @@ require('lauline-conf')
 require('autopairs-conf')
 
 --require("lsp-config")
-
+vim.opt.shell = [["C:/Program Files/Git/bin/bash.exe"]]
+vim.opt.shellcmdflag = "-c"
+vim.opt.shellquote = '"'
+vim.opt.shellxquote = ""
+ -- Normalize temporary files for bash on Windows
+vim.opt.shellredir = ">%s 2>&1"
+vim.opt.shellpipe = "2>&1| tee"
+vim.opt.shellslash = true
