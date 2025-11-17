@@ -23,13 +23,16 @@ vim.opt.virtualedit = 'all'
 
 require('lauline-conf')
 require('autopairs-conf')
-
---require("lsp-config")
-vim.opt.shell = [["C:/Program Files/Git/bin/bash.exe"]]
-vim.opt.shellcmdflag = "-c"
-vim.opt.shellquote = '"'
+ -- Use PowerShell
+vim.opt.shell = "powershell"
+vim.opt.shellcmdflag = "-Command"
+vim.opt.shellquote = ""
 vim.opt.shellxquote = ""
- -- Normalize temporary files for bash on Windows
-vim.opt.shellredir = ">%s 2>&1"
-vim.opt.shellpipe = "2>&1| tee"
-vim.opt.shellslash = true
+
+-- Redirect output safely for PowerShell
+vim.opt.shellredir = ">$TEMP\\nvimerror 2>&1"
+vim.opt.shellpipe = ">"   -- simple redirection works reliably
+
+-- Use make in PATH
+vim.opt.makeprg = "make"
+

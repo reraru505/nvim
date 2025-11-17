@@ -7,12 +7,48 @@ vim.keymap.set('n', '<C-l>', 'w', { noremap = true, silent = true, desc = 'Move 
 vim.keymap.set('n', '<C-h>', 'b', { noremap = true, silent = true, desc = 'Move prev word start' })
 -- Helix: "ret" = "open_below"
 vim.keymap.set('n', '<CR>', 'o', { noremap = true, silent = true, desc = 'Open line below' })
+vim.keymap.set('n' , 'o' , '<CR>' , {noremap =  true , silent =  true , desc = 'sub the enter'})
 
 -- visual mode settings 
 vim.keymap.set('v', '<C-l>', 'w', { noremap = true, silent = true, desc = 'Move next word start' })
 vim.keymap.set('v', '<C-h>', 'b', { noremap = true, silent = true, desc = 'Move prev word start' })
+ 
+-- In your init.lua or a file in lua/
 
+vim.api.nvim_create_user_command(
+  'Compile',
+  function(opts)
+    -- Default to 'make' if no arguments are provided
+    local cmd = #opts.fargs > 0 and table.concat(opts.fargs, ' ') or 'make'
 
+    print("Running: " .. cmd) -- Optional: gives feedback
+
+    -- Run the command and capture its output
+    local output = vim.fn.system(cmd)
+
+    -- Use the function API directly, it's safer and cleaner.
+    -- First, check if there is any output to process.
+    if output and #output > 0 then
+      -- Split the output string into a list of lines
+      local lines = vim.fn.split(output, '\n')
+
+      -- Use setqflist() to parse the lines and populate the quickfix list.
+      -- This is the Lua equivalent of ":cexpr {output}" but much more robust.
+      vim.fn.setqflist({}, 'r', { lines = lines })
+    else
+      -- If there is no output, clear the quickfix list to signal a clean run.
+      vim.fn.setqflist({})
+    end
+
+    -- Open the quickfix window if the list is not empty
+    vim.cmd('cwindow')
+  end,
+  {
+    nargs = '*', -- Accepts zero or more arguments
+    complete = 'shellcmd',
+    desc = 'Run a build command (defaults to make) and populate the quickfix list',
+  }
+)
 -- make emacs like A-w to copy
 vim.keymap.set('v' , '<A-w>' , 'y' , { noremap = true , silent = true })
 -- make emacs like C-w to cut
