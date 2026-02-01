@@ -7,6 +7,7 @@ vim.keymap.set('n', '<C-l>', 'w', { noremap = true, silent = true, desc = 'Move 
 vim.keymap.set('n', '<C-h>', 'b', { noremap = true, silent = true, desc = 'Move prev word start' })
 -- Helix: "ret" = "open_below"
 vim.keymap.set('n', '<CR>', 'o', { noremap = true, silent = true, desc = 'Open line below' })
+vim.keymap.set('n', 'o', '<CR>', { noremap = true, silent = true, desc = 'restore carraige return' })
 
 -- visual mode settings 
 vim.keymap.set('v', '<C-l>', 'w', { noremap = true, silent = true, desc = 'Move next word start' })
@@ -25,6 +26,9 @@ vim.keymap.set('i' , '<C-y>' , 'P' , { noremap = true , silent = true })
 
 vim.keymap.set('n' , '<C-j>', '}', {noremap = true , silent = true})
 vim.keymap.set('n' , '<C-k>', '{', {noremap = true , silent = true})
+
+vim.keymap.set('v' , '<C-j>', '}', {noremap = true , silent = true})
+vim.keymap.set('v' , '<C-k>', '{', {noremap = true , silent = true})
 
 
 vim.keymap.set('n' , 'K' , vim.diagnostic.open_float , {noremap = true , silent = true} )
@@ -106,7 +110,9 @@ local function helix_select_line_by_line()
   end
 end
 
-vim.keymap.set('n' , 'd' , 'x' , {noremap = true})
+vim.keymap.set('n' , 'd' , '"_d' , {noremap = true})
+vim.keymap.set('v' , 'd' , '"_d' , {noremap = true})
+
 vim.keymap.set('n' , 'C' , '<C-v>' , {noremap = true})
 
 vim.keymap.set('n' , 'x' , helix_select_line_by_line , {})
@@ -119,9 +125,22 @@ vim.keymap.set('n' , '<A-j>'  , move_line_down , {noremap = true , desc = "Move 
 vim.keymap.set('n' , '<A-h>' , paste_left , {noremap = true , desc = "Move word left" })
 vim.keymap.set('n' , '<A-l>' , paste_right , {noremap = true , desc = "Move word right" })
 
+vim.keymap.set('n' , 'L' , '$', {noremap = true , desc = "Move word end" })
+vim.keymap.set('n' , 'H' , '^' , {noremap = true , desc = "Move word start" })
+
+vim.keymap.set('v' , 'L' , '$', {noremap = true , desc = "Move word end" })
+vim.keymap.set('v' , 'H' , '^' , {noremap = true , desc = "Move word start" })
+
 
 vim.keymap.set('v' , '<A-k>' , move_selection_up, { noremap = true , desc = "Move selection up" })
 vim.keymap.set('v' , '<A-j>' , move_selection_down, { noremap = true , desc = "Move selection down" })
+
+-- resize commands
+vim.keymap.set('n' , '<' , ':resize +5<CR>', {noremap = true , desc = "Move word end" })
+vim.keymap.set('n' , '>' , ':resize -5<CR>' , {noremap = true , desc = "Move word start" })
+vim.keymap.set('n' , ',' , ':vertical resize +5<CR>', {noremap = true , desc = "Move word end" })
+vim.keymap.set('n' , '.' , ':vertical resize -5<CR>' , {noremap = true , desc = "Move word start" })
+
 
 
 

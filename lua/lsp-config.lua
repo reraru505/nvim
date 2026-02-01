@@ -18,17 +18,16 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     "rust_analyzer", -- Rust
     "gopls",         -- Go
-    "pyright",       -- Python
     "clangd",        -- C/C++
   },
   -- You can still use setup_handlers here for common on_attach keymaps,
   -- or manage on_attach centrally as shown below for the v0.11+ style.
 })
 
+
 -- --- LSP Server Setup Handlers (using the new vim.lsp.enable() style) ---
 -- This section remains exactly the same as provided in the v0.11+ example.
 -- It works independently of whether Packer or Lazy manages the plugins.
-
 local on_attach_callback = function(client, bufnr)
     local buf_set_keymap = vim.api.nvim_buf_set_keymap
     local opts = { noremap = true, silent = true }
@@ -70,6 +69,5 @@ setup_lsp_server('rust_analyzer')
 setup_lsp_server('gopls')
 setup_lsp_server('pyright')
 setup_lsp_server('clangd')
-
 
 -- ... (Remainder of your Neovim Configuration, transparency function call, etc.) ...
